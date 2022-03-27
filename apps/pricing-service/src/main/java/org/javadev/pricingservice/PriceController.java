@@ -36,6 +36,7 @@ public class PriceController {
 	}
 
 	private void pupulatePriceList() {
+		priceList.clear();
 		priceList.add(new Price(201L, 101L, 1999, 999));
 		priceList.add(new Price(202L, 102L, 199, 19));
 		priceList.add(new Price(203L, 103L, 1222, 600));
