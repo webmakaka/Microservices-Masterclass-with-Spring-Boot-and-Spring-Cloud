@@ -129,6 +129,36 @@ $ curl \
 }
 ```
 
+<br/>
+
+### 12. MakingRestTemplateCalls
+
+
+<br/>
+
+```
+// GET
+$ curl \
+    --header "Content-Type: application/json" \
+    --request GET \
+    --url http://localhost:8001/product/details/102 \
+    | jq
+```
+
+<br/>
+
+**response:**
+
+```
+{
+  "productId": 102,
+  "productName": "Book",
+  "productDesc": "Book is great!",
+  "productPrice": 19,
+  "productStock": true
+}
+```
+
 <br/><br/>
 
 ---

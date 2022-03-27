@@ -3,27 +3,36 @@ package org.javadev.productservice;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class ProductController {
 	
 	List<ProductInfo> productList = new ArrayList<ProductInfo>();
 	
-	
+	@Autowired
+	private RestTemplate restTemplate;
 	
 	@GetMapping("/product/details/{productid}")
 	public Product getProductDetails(@PathVariable Long productid) {
-		
-		
 		ProductInfo productInfo = getProductInfo(productid);
 		
-		return new Product(productInfo.getProductId(), productInfo.getProductName(), productInfo.getProductDesc(), 999, true);
+		Price price = restTemplate.getForObject("http://localhost:8002/price/" + productid, Price.class);
+		
+		Inventory inventory = restTemplate.getForObject("http://localhost:8003/inventory/" + productid, Inventory.class);
+		
+		return new Product(
+				productInfo.getProductId(), 
+				productInfo.getProductName(), 
+				productInfo.getProductDesc(), 
+				price.getDiscountedPrice(), 
+				inventory.getInStock()
+				);
 	}
-
-
 
 	private ProductInfo getProductInfo(Long productid) {
 		pupulateProductList();

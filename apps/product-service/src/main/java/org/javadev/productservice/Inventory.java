@@ -1,4 +1,4 @@
-package org.javadev.inventoryservice;
+package org.javadev.productservice;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
