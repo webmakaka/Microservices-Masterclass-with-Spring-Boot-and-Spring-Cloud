@@ -99,7 +99,34 @@ $ curl \
   "originalPrice": 1999,
   "discountedPrice": 999
 }
+```
 
+<br/>
+
+### 11. CreatingInventoryService
+
+
+<br/>
+
+```
+// GET
+$ curl \
+    --header "Content-Type: application/json" \
+    --request GET \
+    --url http://localhost:8003/inventory/101 \
+    | jq
+```
+
+<br/>
+
+**response:**
+
+```
+{
+  "inventoryId": 301,
+  "productId": 101,
+  "isStock": true
+}
 ```
 
 <br/><br/>
