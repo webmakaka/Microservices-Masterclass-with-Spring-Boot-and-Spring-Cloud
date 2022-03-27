@@ -73,6 +73,35 @@ $ curl \
 // GET http://localhost:8001/product/details/103
 ```
 
+<br/>
+
+### 10. CreatingPricingService
+
+<br/>
+
+```
+// GET
+$ curl \
+    --header "Content-Type: application/json" \
+    --request GET \
+    --url http://localhost:8002/price/101 \
+    | jq
+```
+
+<br/>
+
+**response:**
+
+```
+{
+  "priceId": 201,
+  "productId": 101,
+  "originalPrice": 1999,
+  "discountedPrice": 999
+}
+
+```
+
 <br/><br/>
 
 ---
