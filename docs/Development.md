@@ -1,5 +1,10 @@
 # [Karthikeya T] Microservices Masterclass with Spring Boot and Spring Cloud [ENG, 2020...2022]
 
+
+<br/>
+
+## 02. 
+
 <br/>
 
 Eclipse + STS -> New -> Other -> Spring Boot -> Spring Starter Project
@@ -24,7 +29,9 @@ https://projectlombok.org/setup/gradle
 
 <br/>
 
-### 09. CreatingProductList
+### 08. CreatingProductService
+
+<br/>
 
 ```
 $ ./gradlew bootRun
@@ -53,6 +60,17 @@ $ curl \
   "productPrice": 999,
   "productStock": true
 }
+```
+
+<br/>
+
+### 09. CreatingProductList
+
+<br/>
+
+```
+// GET http://localhost:8001/product/details/102
+// GET http://localhost:8001/product/details/103
 ```
 
 <br/><br/>
